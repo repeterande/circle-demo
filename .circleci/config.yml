@@ -4,9 +4,9 @@ jobs:
     working_directory: ~/tmp
     docker:
       - image: circleci/node:7
-      - auth: 
-          username: _json_key
-          password: $GOOGLE_AUTH 
+        #      - auth: 
+        #  username: _json_key
+        #  password: $GOOGLE_AUTH 
     steps:
       - checkout
       - run: npm install
