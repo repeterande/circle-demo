@@ -36,5 +36,5 @@ jobs:
       - run: 
           name: Push to GCR
           command: |
-            docker pull alpine:latest
-            gcloud docker -- push eu.gcr.io/entur-dev-1287/alpine:latest
+            gcloud docker -- pull alpine:latest
+            gcloud docker -- push eu.gcr.io/entur-dev-1287/alpine
