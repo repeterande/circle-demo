@@ -8,5 +8,4 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
-      - run: curl https://dl.google.com/dl/cloudsdk/channels/rapid/install_google_cloud_sdk.bash -o gcloud_install.sh
-             sudo sh gcloud_install.sh --disable-prompts --install-dir="/bin"
+      - run: curl https://dl.google.com/dl/cloudsdk/channels/rapid/install_google_cloud_sdk.bash -o gcloud_install.sh && sudo sh gcloud_install.sh --install-dir="/bin"
