@@ -31,8 +31,8 @@ jobs:
             gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
             gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
             gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
-      - run: 
-          name: Push to GCR
+            #      - run: 
+            # name: Push to GCR
           #command: /bin/google-cloud-sdk/bin/gcloud docker -- push eu.gcr.io/entur-dev-1287/hello-circle:test
       - run: 
           name: Verify Docker Works
