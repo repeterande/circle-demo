@@ -13,6 +13,8 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run: 
           name: Download & Install Google SDK
           command: curl https://dl.google.com/dl/cloudsdk/channels/rapid/install_google_cloud_sdk.bash -o gcloud_install.sh && sudo sh gcloud_install.sh --disable-prompts --install-dir="/bin"
