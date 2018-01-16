@@ -31,4 +31,4 @@ jobs:
           gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
       - run: 
           name: Push to GCR
-          command: sudo -E /bin/google-cloud-sdk/bin/gcloud docker push eu.gcr.io/entur-dev-1287/hello-circle
+          command: /bin/google-cloud-sdk/bin/gcloud docker -- push eu.gcr.io/entur-dev-1287/hello-circle:test
