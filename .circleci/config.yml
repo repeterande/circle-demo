@@ -8,4 +8,5 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
-      - run: /opt/google-cloud-sdk/bin/gcloud docker -- push eu.gcr.io/entur-1287/hello
+      - run: curl https://dl.google.com/dl/cloudsdk/channels/rapid/install_google_cloud_sdk.bash -o gcloud_install.sh
+             sudo sh gcloud_install.sh --disable-prompts --install-dir="/bin"
