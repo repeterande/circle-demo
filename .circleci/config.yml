@@ -8,3 +8,4 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
+      - run: gcloud docker -- push eu.gcr.io/entur-1287/hello
