@@ -4,15 +4,15 @@ jobs:
     working_directory: ~/tmp
     docker:
       - image: circleci/node:7
-        #      - auth: 
-        #  username: _json_key
-        #  password: $GOOGLE_AUTH 
+        auth: 
+        username: _json_key
+        password: $GOOGLE_AUTH 
     steps:
       - checkout
       - run: npm install
       - run: npm test
       - run: curl https://dl.google.com/dl/cloudsdk/channels/rapid/install_google_cloud_sdk.bash -o gcloud_install.sh && sudo sh gcloud_install.sh --disable-prompts --install-dir="/bin"
-      - run: sudo /bin/google-cloud-sdk/bin/gcloud docker -- push eu.gcr.io/entur-1287/hello-ci
-        #      - run: 
-        #  name: Dump Google Cloud Credentials to file
-        #  command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json && cat ${HOME}/gcp-key.json
+      - run: 
+        name: Dump Google Cloud Credentials to file
+        command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json && cat ${HOME}/gcp-key.json
+        #      - run: sudo /bin/google-cloud-sdk/bin/gcloud docker -- push eu.gcr.io/entur-1287/hello-ci
