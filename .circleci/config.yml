@@ -24,4 +24,4 @@ jobs:
           gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
           gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
           gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
-      - run: gcloud docker -- push eu.gcr.io/entur-dev-1287/hello-ci
+      - run: sudo -E gcloud docker -- push eu.gcr.io/entur-dev-1287/hello-ci
