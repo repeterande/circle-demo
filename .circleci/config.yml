@@ -13,7 +13,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm test
-      - setup_remote_docker:
+      - setup_remote_docker
       - run: 
           name: Download & Install Google SDK
           command: curl https://dl.google.com/dl/cloudsdk/channels/rapid/install_google_cloud_sdk.bash -o gcloud_install.sh && sudo sh gcloud_install.sh --disable-prompts --install-dir="/bin"
@@ -36,4 +36,5 @@ jobs:
           name: Push to GCR
           command: |
             gcloud docker -- pull alpine:latest
+            docker tag library/alpine:latest eu.gcr.io/entur-dev-1287/hello-ci:test
             gcloud docker -- push alpine:latest
