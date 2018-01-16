@@ -26,8 +26,9 @@ jobs:
           name: Authenticate as SA
           command: gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
       - run: |
-          name: Configure context
           gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
           gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
           gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
-      - run: sudo -E /bin/google-cloud-sdk/bin/gcloud docker -- push eu.gcr.io/entur-dev-1287/hello-ci
+      - run: 
+          name: Push to GCR
+          command: sudo /bin/google-cloud-sdk/bin/gcloud docker --docker-host=$DOCKER_HOST -- --tlsverify --tlscacert $DOCKER_CERT_PATH/ca.pem --tlscert $DOCKER_CERT_PATH/cert.pem --tlskey $DOCKER_CERT_PATH/key.pem push eu.gcr.io/entur-dev-1287/hello-circle
