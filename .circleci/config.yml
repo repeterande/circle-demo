@@ -14,7 +14,6 @@ jobs:
       - run: npm install
       - run: npm test
       - setup_remote_docker:
-          docker_layer_caching: true
       - run: 
           name: Download & Install Google SDK
           command: curl https://dl.google.com/dl/cloudsdk/channels/rapid/install_google_cloud_sdk.bash -o gcloud_install.sh && sudo sh gcloud_install.sh --disable-prompts --install-dir="/bin"
@@ -23,7 +22,7 @@ jobs:
           command: echo 'export PATH=/bin/google-cloud-sdk/bin:$PATH' >> $BASH_ENV
       - run: 
           name: Dump Google Cloud Credentials to file
-          command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json && cat ${HOME}/gcp-key.json
+          command: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json 
       - run:
           name: Authenticate as SA
           command: gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
@@ -37,5 +36,4 @@ jobs:
           name: Push to GCR
           command: |
             gcloud docker -- pull alpine:latest
-            docker ps
             gcloud docker -- push alpine:latest
