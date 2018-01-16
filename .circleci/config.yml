@@ -34,7 +34,7 @@ jobs:
       - run: 
           name: Push to GCR
           #command: /bin/google-cloud-sdk/bin/gcloud docker -- push eu.gcr.io/entur-dev-1287/hello-circle:test
-      - type: shell
+      - run: 
           name: Verify Docker Works
           command: |
             docker --version
