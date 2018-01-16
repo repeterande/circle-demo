@@ -37,4 +37,4 @@ jobs:
           command: |
             gcloud docker -- pull alpine:latest
             docker tag library/alpine:latest eu.gcr.io/entur-dev-1287/hello-ci:test
-            gcloud docker -- push alpine:latest
+            docker ps
