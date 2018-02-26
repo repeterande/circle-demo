@@ -36,5 +36,5 @@ jobs:
           name: Build & push image to GCR
           command: |
             echo 'FROM alpine:latest' > ${HOME}/tmp/Dockerfile
-            docker build -t eu.gcr.io/entur-dev-1287/hello-ci:test .
-            gcloud docker -- push eu.gcr.io/entur-dev-1287/hello-ci:test
+            docker build -t eu.gcr.io/recet-demo/hello-ci:test .
+            gcloud docker -- push eu.gcr.io/recet-demo/hello-ci:test
